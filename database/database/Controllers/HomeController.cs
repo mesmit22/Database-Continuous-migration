@@ -16,6 +16,25 @@ namespace database.Controllers
             return View(db.Todoes.ToList());
         }
 
+        public ActionResult Create()
+        {
+            return View(new Todo { DueDate = DateTime.Today.AddDays(2) });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "TodoTitle,DueDate,Priority")] Todo todo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Todoes.Add(todo);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(todo);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

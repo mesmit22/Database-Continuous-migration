@@ -6,7 +6,13 @@
 <table class="table">
     <tr>
         <th>
-            Title
+            @Html.DisplayNameFor(m => m.TodoTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m=> m.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.Priority)
         </th>
     </tr>
     @foreach (var item in Model)
@@ -14,6 +20,12 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.TodoTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
             </td>
         </tr>
     }

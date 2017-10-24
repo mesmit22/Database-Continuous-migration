@@ -17,6 +17,12 @@ namespace database.Models
         [Display(Name ="Todo Title")]
         public string TodoTitle { get; set; }
 
+        [Required]
+        [Display(Name = "Due Date")]
+        public DateTime DueDate { get; set; }
 
+        [Required]
+        [Display(Name = "Priority")]
+        public int Priority { get; set; }
     }
 }
