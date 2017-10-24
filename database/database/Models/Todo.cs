@@ -24,5 +24,7 @@ namespace database.Models
         [Required]
         [Display(Name = "Priority")]
         public int Priority { get; set; }
+
+        public bool Complete { get; set; }
     }
 }
